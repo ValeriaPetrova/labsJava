@@ -2,7 +2,7 @@ package Morse;
 
 import java.util.Objects;
 
-public class Symbol {
+public class Symbol implements Comparable{
     private final char c;
     private int count;
 
@@ -36,4 +36,12 @@ public class Symbol {
         return Objects.hash(c);
     }
 
+    @Override
+    public int compareTo(Object o) { //сравнивает вызывающий объект с объектом, переданным в качестве параметра, и возвращает в результате выполнения сравнения целое число
+        if (o == this) {
+            return 0;
+        }
+        Symbol second = (Symbol) o;
+        return Integer.compare(count, second.count);
+    }
 }
