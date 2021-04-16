@@ -1,0 +1,5 @@
+INIT=ru.nsu.Init
+MOVE=ru.nsu.Move
+DRAW=ru.nsu.Draw
+WARD=ru.nsu.Ward
+TELEPORT=ru.nsu.Teleport
