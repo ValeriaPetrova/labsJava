@@ -1,0 +1,22 @@
+2021-05-06 15:27:30 INFO  Main:16 - Entering application.
+2021-05-06 15:30:01 INFO  Main:16 - Entering application.
+2021-05-06 15:33:17 INFO  Main:27 - Execute command EXIT.
+2021-05-06 15:37:34 INFO  Main:16 - Entering application.
+2021-05-06 15:39:50 INFO  Main:16 - Entering application.
+2021-05-06 15:40:56 INFO  Main:16 - Entering application.
+2021-05-06 15:46:49 INFO  Main:16 - Entering application.
+2021-05-06 15:46:49 INFO  Factory:16 - Reading property from config.txt.
+2021-05-06 15:46:58 INFO  Factory:32 - Create object of class ru.nsu.Commands.Init
+2021-05-06 15:46:58 INFO  Init:11 - Execute command INIT.
+2021-05-06 15:47:04 INFO  Factory:32 - Create object of class ru.nsu.Commands.Move
+2021-05-06 15:47:04 INFO  Move:13 - Execute command MOVE.
+2021-05-06 15:47:09 INFO  Factory:32 - Create object of class ru.nsu.Commands.Draw
+2021-05-06 15:47:09 INFO  Draw:12 - Execute command DRAW.
+2021-05-06 15:47:14 INFO  Move:13 - Execute command MOVE.
+2021-05-06 15:47:19 INFO  Factory:32 - Create object of class ru.nsu.Commands.Ward
+2021-05-06 15:47:19 INFO  Ward:12 - Execute command WARD.
+2021-05-06 15:47:25 INFO  Factory:32 - Create object of class ru.nsu.Commands.Teleport
+2021-05-06 15:47:25 INFO  Teleport:12 - Execute command TELEPORT.
+2021-05-06 15:47:32 INFO  Teleport:12 - Execute command TELEPORT.
+2021-05-06 15:47:32 WARN  Teleport:55 - Incorrect arguments in command TELEPORT. . Incorrect number of arguments or coordinates
+2021-05-06 15:47:44 INFO  Main:27 - Execute command EXIT.
