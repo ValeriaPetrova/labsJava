@@ -16,26 +16,19 @@ public class Factory {
         prop.load(ClassLoader.getSystemClassLoader().getResourceAsStream("config"));
     }
 
-    public Factory(String fileName) throws IOException {
-        //logger.info("Reading property from " + fileName + ".");
-        prop.load(ClassLoader.getSystemClassLoader().getResourceAsStream(fileName));
-    }
-
-    public Object create(String commandName, Game myGame) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+    public Object create(String commandName) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
         String className = prop.getProperty(commandName, "Unknown command");
         Object command;
         if (className.equals("Unknown command")) {
             System.out.println("Unknown command");
             return null;
         }
-        if (!classes.containsKey(className)) {
+        command = classes.get(className);
+        if (command == null) {
             Class c = Class.forName(className);
             command = c.newInstance();
             //logger.info("Create object of class " + className);
             classes.put(className, command);
-        }
-        else {
-            command = classes.get(className);
         }
         return command;
     }
