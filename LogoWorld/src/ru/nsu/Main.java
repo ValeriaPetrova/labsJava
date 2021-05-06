@@ -1,16 +1,16 @@
 package ru.nsu;
 
+import ru.nsu.Commands.Command;
+
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class Main {
 //    private final static Logger logger = Logger.getLogger(Main.class);
     public static void main(String[] args) {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-//            PropertyConfigurator.configure("logconfig.txt");
-//            logger.info("\n------------------------------------------\n");
+//            PropertyConfigurator.configure("");
 //            logger.info("Entering application.");
             Game myGame = new Game();
             Factory factory = new Factory();
@@ -23,6 +23,7 @@ public class Main {
                 String str = reader.readLine();
                 if (str.equals(exitCommand)) {
                     //logger.info("Execute command EXIT.");
+                    System.out.println("Game over.");
                     break;
                 }
                 if (str.length() < 4) {
@@ -31,11 +32,11 @@ public class Main {
                 }
                 char [] charStr = str.toCharArray();
                 StringBuilder stringBuilder = new StringBuilder();
-                for (int i = 0; i < charStr.length; i++) {
-                    if (Character.isWhitespace(charStr[i])) {
+                for (char c : charStr) {
+                    if (Character.isWhitespace(c)) {
                         break;
                     }
-                    stringBuilder.append(charStr[i]);
+                    stringBuilder.append(c);
                 }
                 String commandName = stringBuilder.toString();
                 //System.out.println(commandName + ", length = " + commandName.length());
@@ -43,11 +44,14 @@ public class Main {
                     System.out.println("Firstly, you should enter: INIT <width> <height> <x> <y>");
                     continue;
                 }
-                command = (Command)factory.create(commandName, myGame);
+                command = (Command)factory.create(commandName);
                 if (command != null) {
-
-                    String arguments = str.substring(commandName.length() + 1, str.length());
-                    command.execute(arguments, myGame);
+                    if (commandName.equals("DRAW") || commandName.equals("WARD")){
+                    command.execute(null, myGame);
+                    } else {
+                        String arguments = str.substring(commandName.length() + 1, str.length());
+                        command.execute(arguments, myGame);
+                    }
                     if (step == 1 && myGame.getHeight() <= 0 || myGame.getWidth() <= 0)  {
                         continue;
                     }
